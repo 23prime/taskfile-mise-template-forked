@@ -30,5 +30,5 @@
   "biome.enabled": true,
 
   // Dictionary for spell checker
-  "cSpell.words": ["Taskfile"],
+  "cSpell.words": ["shellcheck", "shfmt", "Taskfile"],
 }
