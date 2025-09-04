@@ -32,7 +32,7 @@ tasks:
     deps:
       - sh:check
       - yml:check
-      - json:fmt
+      - json:check
       - md:check
       - gh:check
     aliases:
