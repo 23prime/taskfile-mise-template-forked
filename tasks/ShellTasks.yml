@@ -16,3 +16,5 @@ tasks:
     desc: "Format shell scripts"
     cmds:
       - shfmt -i 4 -w .
+    aliases:
+      - fix
