@@ -16,4 +16,5 @@ tasks:
       - uv --version
       - yamllint --version
       - markdownlint --version
+      - biome --version
       - actionlint --version
