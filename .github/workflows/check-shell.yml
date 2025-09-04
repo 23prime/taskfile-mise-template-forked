@@ -1,12 +1,16 @@
-name: Check
+name: Check shell script
 
 on:
   push:
     paths:
-      - ".github/workflows/check.yml"
+      - "**/*.sh"
+      - "**/*.bash"
+      - ".github/workflows/check-shell.yml"
   pull_request:
     paths:
-      - ".github/workflows/check.yml"
+      - "**/*.sh"
+      - "**/*.bash"
+      - ".github/workflows/check-shell.yml"
 
 jobs:
   check:
@@ -24,14 +28,18 @@ jobs:
         uses: jdx/mise-action@v3
         with:
           install: true
+          install_args: "shellcheck shfmt"
           cache: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Check
-        run: task check
+      - name: Fix
+        run: task sh:fix
 
       - name: Commit and Push
         uses: 23prime/simple-commit-and-push@v1
         with:
-          commit-message: "Auto fix code by `task check`"
+          commit-message: "Auto fix code by `task sh:fix`"
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check
+        run: task sh:check
